@@ -12,7 +12,7 @@ export default function AboutPage() {
         target="_blank"
         rel="noreferrer noopener"
       >
-        The only one and most important reason
+        The single most important reason
       </a>
     </div>
   );

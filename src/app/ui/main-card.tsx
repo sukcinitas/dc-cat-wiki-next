@@ -28,7 +28,7 @@ export default async function MainCard({
         <span className="main-card__cat-row-detail"></span>
         <Link href={`/breed/${cat.id}`} className="relative">
           <div className="main-card__cat-row-image">
-            <Image src={cat.url} alt="cat" layout="fill" />
+            <Image src={cat.url} alt="cat" fill={true} />
           </div>
         </Link>
       </div>

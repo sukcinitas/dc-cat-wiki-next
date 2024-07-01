@@ -38,7 +38,7 @@ const CatInfoCard = ({
     <section className="cat-info-card">
       <div className="cat-info-card__photo-wrapper">
         <div className="relative cat-info-card__photo">
-          <Image src={url} alt="cat" layout="fill" />
+          <Image src={url} alt="cat" fill={true} />
         </div>
         <span className="cat-info-card__detail"></span>
       </div>

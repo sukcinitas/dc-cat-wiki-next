@@ -35,24 +35,20 @@ export default function SearchBar({
     )
   );
 
+  const findCat = () => {
+    const searchQuery = searchParams.get("search")?.toLowerCase() ?? "";
+    const cat = searchList.find((cat) =>
+      cat.name.toLowerCase().includes(searchQuery)
+    );
+    return cat?.id ?? "";
+  };
+
   return (
     <div className="search">
       {/* Desktop view */}
       <form
         className="search__bar"
-        onSubmit={() =>
-          router.push(
-            `/breed/${
-              searchList.find((cat) =>
-                cat.name
-                  .toLowerCase()
-                  .includes(
-                    searchParams.get("search")?.toLocaleLowerCase() || ""
-                  )
-              )?.name ?? ""
-            }`
-          )
-        }
+        onSubmit={() => router.push(`/breed/${findCat()}`)}
       >
         <input
           className="modal__bar-input search__bar-input"

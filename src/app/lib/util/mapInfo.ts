@@ -54,7 +54,7 @@ export const mapCatImageInfo = (
 export const mapCatImageNameInfo = (
   data: Array<CatBreedSearchedData>
 ): Array<{ id: string; name: string; url: string }> => {
-  const first = data
+  const first = (data ?? [])
     .map((cat: CatBreedSearchedData) => ({
       id: cat.id,
       name: cat.name,

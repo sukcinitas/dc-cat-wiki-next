@@ -21,7 +21,7 @@ const CatCard = ({ id, index, url, name, description }: CatCardProps) => {
         href={`/breed/${id}`}
         className="cat-card__image cat-card__image-btn relative"
       >
-        <Image src={url} alt="cat" layout="fill" />
+        <Image src={url} alt="cat" fill={true} />
       </Link>
       <div className="cat-card__info">
         <Heading type="small">
