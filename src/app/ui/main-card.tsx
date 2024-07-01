@@ -39,13 +39,13 @@ export default async function MainCard({
   return (
     <div className="main-card">
       <section className="main-card__top-section">
-        {/* <picture> */}
-        {/* <source media="(min-width:550px)" srcSet={image} />
-          <source media="(min-width:0px)" srcSet={imageSmall} /> */}
-        <div className="main-card__logo">
-          <Image src={image} alt="cat" height={87} />
-        </div>
-        {/* </picture> */}
+        <picture>
+          <source media="(min-width:550px)" srcSet={image} />
+          <source media="(min-width:0px)" srcSet={imageSmall} />
+          <div className="main-card__logo relative">
+            <Image src={image} alt="cat" fill={true} />
+          </div>
+        </picture>
         <p className="main-card__text">Get to know more about your cat breed</p>
         <SearchBar searchList={searchList} />
       </section>

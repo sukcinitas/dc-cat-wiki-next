@@ -2,24 +2,15 @@ import React from "react";
 
 import "@/sass/Heading.scss";
 
-// TODO: normal function
-
-const Heading = ({
-  children,
-  type,
-  cb,
-}: {
+interface HeadingProps {
   children: React.ReactNode;
   type?: string;
-  cb?: () => void;
-}) => {
+}
+
+export default function Heading({ children, type }: HeadingProps) {
   let heading;
   if (type === "small") {
-    heading = (
-      <h4 onClick={cb} className="heading heading--small">
-        {children}
-      </h4>
-    );
+    heading = <h4 className="heading heading--small">{children}</h4>;
   } else if (type === "small-bold") {
     heading = <h2 className="heading heading--small-bold">{children}</h2>;
   } else if (type === "with-line") {
@@ -28,6 +19,4 @@ const Heading = ({
     heading = <h2 className="heading">{children}</h2>;
   }
   return heading;
-};
-
-export default Heading;
+}

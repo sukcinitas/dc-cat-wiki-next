@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "./ui/header";
 import Footer from "./ui/footer";
 import "@/sass/App.scss";
+import "@/sass/Button.scss";
 
 export const metadata: Metadata = {
   title: "Cats Wiki",

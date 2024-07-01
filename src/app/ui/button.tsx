@@ -1,7 +1,5 @@
 import React from "react";
 
-import "@/sass/Button.scss";
-
 const Button = ({
   children,
   cb,
@@ -15,11 +13,7 @@ const Button = ({
   withIcon?: boolean;
   classes?: string[];
 }) => (
-  <button
-    onClick={cb}
-    className={`${["btn", ...classes].join(" ")}`}
-    type={type}
-  >
+  <button onClick={cb} className={`btn ${[...classes].join(" ")}`} type={type}>
     {children}
     {withIcon && (
       <span className="material-icons btn__icon">arrow_right_alt</span>

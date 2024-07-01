@@ -15,8 +15,7 @@ const LinkButton = ({
   <span className={`${["btn", ...classes].join(" ")}`}>
     <Link href={href}>
       {children}
-      {/* TODO: */}
-      {/* <span className="material-icons btn__icon">arrow_right_alt</span> */}
+      <span className="material-icons btn__icon">arrow_right_alt</span>
     </Link>
   </span>
 );

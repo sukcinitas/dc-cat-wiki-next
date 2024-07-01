@@ -7,14 +7,14 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import "@/sass/SearchBar.scss";
 import Button from "./button";
 
-const SearchBar = ({
+export default function SearchBar({
   searchList,
-}: {
+}: Readonly<{
   searchList: { name: string; id: string }[];
-}) => {
+}>) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleSearch = (term: string): void => {
@@ -24,7 +24,7 @@ const SearchBar = ({
     } else {
       params.delete("search");
     }
-    replace(`${pathname}?${params.toString()}`);
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   const nameList = searchList.map(
@@ -38,7 +38,22 @@ const SearchBar = ({
   return (
     <div className="search">
       {/* Desktop view */}
-      <form className="search__bar">
+      <form
+        className="search__bar"
+        onSubmit={() =>
+          router.push(
+            `/breed/${
+              searchList.find((cat) =>
+                cat.name
+                  .toLowerCase()
+                  .includes(
+                    searchParams.get("search")?.toLocaleLowerCase() || ""
+                  )
+              )?.name ?? ""
+            }`
+          )
+        }
+      >
         <input
           className="modal__bar-input search__bar-input"
           type="text"
@@ -50,17 +65,20 @@ const SearchBar = ({
         />
         <span className="material-icons search__icon">search</span>
       </form>
-
-      {/* Mobile view */}
-      <Button cb={() => setModalOpen(true)}>
-        <span>Search</span>
-        <span className="material-icons search__button-icon">search</span>
-      </Button>
       <div
-        className={`search__panel ${modalOpen ? "search__panel--visible" : ""}`}
+        className={`search__panel ${
+          searchParams.get("search") ? "search__panel--visible" : ""
+        }`}
       >
         {nameList.length > 0 && <ul className="search__list">{nameList}</ul>}
       </div>
+
+      {/* Mobile view */}
+      <Button classes={["search__button"]} cb={() => setModalOpen(true)}>
+        <span>Search</span>
+        <span className="material-icons search__button-icon">search</span>
+      </Button>
+
       <div className={modalOpen ? "modal" : "modal--hidden"}>
         <Button cb={() => setModalOpen(false)} classes={["modal__btn"]}>
           <span className="material-icons search__icon--close modal__icon--close">
@@ -83,17 +101,12 @@ const SearchBar = ({
           </Button>
         </form>
 
-        {/* Name list */}
         <div className="modal__panel search__panel">
-          {nameList.length > 0 &&
-            searchParams.get("search") &&
-            searchParams && (
-              <ul className="modal__list search__list">{nameList}</ul>
-            )}
+          {nameList.length > 0 && searchParams.get("search") && (
+            <ul className="modal__list search__list">{nameList}</ul>
+          )}
         </div>
       </div>
     </div>
   );
-};
-
-export default SearchBar;
+}

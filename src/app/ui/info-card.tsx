@@ -11,7 +11,7 @@ import "@/sass/InfoCard.scss";
 
 export default function InfoCard() {
   return (
-    <div className="info-card">
+    <div className="info-card__wrapper">
       <section className="info-card__info">
         <Heading type="with-line">Why should you have a cat?</Heading>
         <Paragraph>
@@ -20,31 +20,15 @@ export default function InfoCard() {
         </Paragraph>
         <LinkButton href="/about">Read more</LinkButton>
       </section>
-      <div className="info-card__pic-wrapper">
-        <div className="info-card__pic--1">
-          <Image
-            src={image2}
-            alt="cat"
-            style={{ maxHeight: "168px", width: "auto", float: "right" }}
-          />
+      <div className="info-card">
+        <div className="info-card__pic-wrapper relative">
+          <Image src={image2} alt="cat" fill={true} />
         </div>
-      </div>
-      <div className="info-card__pic-wrapper">
-        <div className="info-card__pic--2">
-          <Image
-            src={image3}
-            alt="cat"
-            style={{ maxHeight: "385px", width: "auto" }}
-          />
+        <div className="info-card__pic-wrapper relative">
+          <Image src={image3} alt="cat" fill={true} />
         </div>
-      </div>
-      <div className="info-card__pic-wrapper">
-        <div className="info-card__pic--3">
-          <Image
-            src={image1}
-            alt="cat"
-            style={{ maxHeight: "294px", width: "auto", float: "right" }}
-          />
+        <div className="info-card__pic-wrapper relative">
+          <Image src={image1} alt="cat" fill={true} />
         </div>
       </div>
     </div>

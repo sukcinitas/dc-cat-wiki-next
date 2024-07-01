@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__logo">
-        <Image src={image} alt="Title CatWiki and a cat beside" />
+        <Image src={image} alt="Title CatWiki and a cat beside" fill={true} />
       </div>
       <p className="footer__content">
         <span className="footer__icon">&#169;</span> created by{" "}

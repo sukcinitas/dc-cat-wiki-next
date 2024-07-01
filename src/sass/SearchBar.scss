@@ -134,7 +134,7 @@
     }
 
     &__list {
-      max-height: 300px;
+      max-height: unset;
       overflow-y: scroll;
     }
 
@@ -142,7 +142,7 @@
       position: absolute;
       right: 12px;
       top: 9px;
-      font-size: 14px;
+      font-size: 14px !important;
     }
 
     &__bar {
@@ -150,8 +150,17 @@
     }
 
     &__panel {
-      width: auto;
+      width: 100%;
       top: 130px;
+      padding-right: 0;
+
+      &--visible {
+        display: none;
+      }
+
+      ul {
+        margin: 10px 30px;
+      }
     }
   }
 

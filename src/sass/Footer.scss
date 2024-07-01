@@ -10,6 +10,7 @@
   justify-content: space-between;
 
   &__logo {
+    position: relative;
     height: 43px;
     color: variables.$bright-1;
     padding: 0px 70px;
