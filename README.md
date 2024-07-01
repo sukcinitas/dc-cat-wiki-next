@@ -37,6 +37,7 @@
 
 An app to get information about cat breeds from CatAPI and to keep track of most searched ones. It has a complementary api [here](https://github.com/sukcinitas/dc-cat-wiki-api). You can find an application demo [here](https://dc-cat-wiki-next.vercel.app/) (it might take a little while for server to wake up).
 This project helped me improve my skills with images, responsiveness and TypeScript.
+This is a Next.js version of the app. Version made with pure React can be found [here](https://github.com/sukcinitas/dc-cat-wiki).
 
 ![](https://github.com/sukcinitas/media/blob/master/cat-wiki/CatWiki01.gif)
 
@@ -46,6 +47,7 @@ This project helped me improve my skills with images, responsiveness and TypeScr
 
 ### Built With
 
+- [Next.js](https://nextjs.org/)
 - [React 17](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Axios](https://www.npmjs.com/package/axios)
