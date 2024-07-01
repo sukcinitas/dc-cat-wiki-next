@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   description: "Information about cat breeds at your hands",
 };
 
-axios.defaults.baseURL = "http://localhost:8080";
+const location = "https://elemental-oil-tin.glitch.me/";
+axios.defaults.baseURL = location;
 
 export default function RootLayout({
   children,

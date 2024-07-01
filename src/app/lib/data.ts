@@ -1,14 +1,6 @@
 import axios from "axios";
 import { CatBreedSearchedData } from "./types";
 
-export async function fetchCats() {
-  try {
-    return await axios.get("/api/cats");
-  } catch (err: unknown) {
-    console.log("err");
-  }
-}
-
 export async function fetchPopularCats() {
   try {
     const cats = await axios.get("/api/cats");
