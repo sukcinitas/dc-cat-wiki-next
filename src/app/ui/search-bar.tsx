@@ -98,7 +98,7 @@ export default function SearchBar({
         </form>
 
         <div className="modal__panel search__panel">
-          {nameList.length > 0 && searchParams.get("search") && (
+          {nameList.length > 0 && searchParams.get("search") && modalOpen && (
             <ul className="modal__list search__list">{nameList}</ul>
           )}
         </div>
