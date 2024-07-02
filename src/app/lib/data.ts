@@ -1,10 +1,12 @@
-import axios from "axios";
+"use server";
+
 import { CatBreedSearchedData } from "./types";
 
 export async function fetchPopularCats() {
   try {
-    const cats = await axios.get("/api/cats");
-    const sorted = cats.data.mostPopularBreeds?.sort(
+    const result = await fetch(process.env.BASE_URL + "/api/cats");
+    const cats = await result.json();
+    const sorted = cats.mostPopularBreeds.sort(
       (a: CatBreedSearchedData, b: CatBreedSearchedData) =>
         b.searched - a.searched
     );
@@ -16,8 +18,11 @@ export async function fetchPopularCats() {
 
 export async function fetchCatBreed(breedId: string) {
   try {
-    const cat = await axios.get(`/api/cats/images?breedId=${breedId}&limit=9`);
-    return cat.data;
+    const result = await fetch(
+      process.env.BASE_URL + `/api/cats/images?breedId=${breedId}&limit=9`
+    );
+    const cat = await result.json();
+    return cat;
   } catch (err) {
     console.error(err);
   }
@@ -25,11 +30,11 @@ export async function fetchCatBreed(breedId: string) {
 
 export async function searchCatBreeds(searchQuery: string) {
   try {
-    const {
-      data: { searchList },
-    } = await axios.get(
-      `/api/cats/search?q=${searchQuery === "all" ? "" : searchQuery}`
+    const result = await fetch(
+      process.env.BASE_URL +
+        `/api/cats/search?q=${searchQuery === "all" ? "" : searchQuery}`
     );
+    const { searchList } = await result.json();
     return searchList;
   } catch (err) {
     console.error(err);

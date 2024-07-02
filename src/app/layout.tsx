@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import axios from "axios";
 
 import Header from "./ui/header";
 import Footer from "./ui/footer";
@@ -10,9 +9,6 @@ export const metadata: Metadata = {
   title: "Cats Wiki",
   description: "Information about cat breeds at your hands",
 };
-
-const location = "https://elemental-oil-tin.glitch.me/";
-axios.defaults.baseURL = location;
 
 export default function RootLayout({
   children,

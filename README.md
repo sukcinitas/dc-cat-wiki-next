@@ -50,7 +50,6 @@ This is a Next.js version of the app. Version made with pure React can be found 
 - [Next.js](https://nextjs.org/)
 - [React 17](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Axios](https://www.npmjs.com/package/axios)
 - [Sass](https://sass-lang.com/) (SCSS syntax)
 
 ##### Linting
