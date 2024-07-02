@@ -13,6 +13,7 @@ export default async function CatPage({
 }>) {
   const { breed } = params;
   const cat = await fetchCatBreed(breed);
+
   const catInfo: CatInfo = cat.catInfo?.[0]
     ? mapCatInfo(cat.catInfo?.[0])
     : {
@@ -42,7 +43,7 @@ export default async function CatPage({
     : [];
 
   return (
-    <div className="cat-paeg">
+    <div className="cat-page">
       <CatInfoCard catInfo={catInfo} />
       <OtherPhotos catImageInfo={catImageInfo} />
     </div>

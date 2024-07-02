@@ -10,7 +10,7 @@ export async function fetchPopularCats() {
     );
     return sorted;
   } catch (err: unknown) {
-    console.log(err);
+    console.error(err);
   }
 }
 
@@ -18,7 +18,9 @@ export async function fetchCatBreed(breedId: string) {
   try {
     const cat = await axios.get(`/api/cats/images?breedId=${breedId}&limit=9`);
     return cat.data;
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export async function searchCatBreeds(searchQuery: string) {
@@ -30,7 +32,6 @@ export async function searchCatBreeds(searchQuery: string) {
     );
     return searchList;
   } catch (err) {
-    console.log(err, "err in search");
-    return [];
+    console.error(err);
   }
 }

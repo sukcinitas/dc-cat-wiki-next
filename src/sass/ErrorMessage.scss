@@ -1,17 +1,18 @@
 @use "variables";
 
-.error-message {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: variables.$brown-2;
+.error-page {
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 100;
-  font-size: 24px;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error-message {
+  font-size: 20px;
   text-align: center;
   font-family: variables.$font-1;
+}
+
+.error-message + button {
+  margin: 0 auto;
 }

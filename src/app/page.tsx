@@ -10,15 +10,15 @@ export default async function HomePage({
 }: Readonly<{
   searchParams: { search?: string };
 }>) {
-  const cats = await fetchPopularCats();
-  const mapped = mapCatImageNameInfo(cats);
-
   const searchQuery = searchParams?.search ?? "";
-  const searchList = await searchCatBreeds(searchQuery);
+  const [cats, searchList] = await Promise.all([
+    fetchPopularCats(),
+    searchCatBreeds(searchQuery),
+  ]);
 
   return (
     <div className="home-page">
-      <MainCard data={mapped} searchList={searchList} />
+      <MainCard data={mapCatImageNameInfo(cats)} searchList={searchList} />
       <InfoCard />
     </div>
   );
