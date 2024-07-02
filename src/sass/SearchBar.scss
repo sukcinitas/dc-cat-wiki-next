@@ -156,13 +156,11 @@
     }
 
     &__panel {
-      width: 100%;
       top: 130px;
-      padding-right: 0;
+    }
 
-      &--visible {
-        display: none;
-      }
+    &__panel:not(.modal__panel) {
+      display: none;
 
       ul {
         margin: 10px 30px;
