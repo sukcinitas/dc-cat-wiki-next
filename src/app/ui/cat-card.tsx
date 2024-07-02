@@ -5,6 +5,7 @@ import Link from "next/link";
 import Heading from "./heading";
 import Paragraph from "./paragraph";
 import "@/sass/CatCard.scss";
+import sizes from "../lib/util/sizes";
 
 interface CatCardProps {
   id: string;
@@ -21,7 +22,7 @@ const CatCard = ({ id, index, url, name, description }: CatCardProps) => {
         href={`/breed/${id}`}
         className="cat-card__image cat-card__image-btn relative"
       >
-        <Image src={url} alt="cat" fill={true} />
+        <Image src={url} alt="cat" fill={true} sizes={sizes[0]} />
       </Link>
       <div className="cat-card__info">
         <Heading type="small">

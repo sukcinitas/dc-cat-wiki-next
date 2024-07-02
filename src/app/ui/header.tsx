@@ -9,7 +9,11 @@ export default function Header() {
   return (
     <header className="header">
       <Link href={"/"} className="header__logo">
-        <Image src={image} alt="Title CatWiki and a cat beside" />
+        <Image
+          src={image}
+          alt="Title CatWiki and a cat beside"
+          priority={true}
+        />
       </Link>
     </header>
   );

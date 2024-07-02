@@ -6,8 +6,8 @@ import SearchBar from "./search-bar";
 import Heading from "./heading";
 import "@/sass/MainCard.scss";
 import image from "../../../public/CatwikiLogoWhite.svg";
-import imageSmall from "../../../public/CatwikiLogoSmall.svg";
 import LinkButton from "./link-button";
+import sizes from "../lib/util/sizes";
 
 interface CatInfo {
   id: string;
@@ -28,7 +28,12 @@ export default async function MainCard({
         <span className="main-card__cat-row-detail"></span>
         <Link href={`/breed/${cat.id}`} className="relative">
           <div className="main-card__cat-row-image">
-            <Image src={cat.url} alt="cat" fill={true} />
+            <Image
+              src={cat.url}
+              alt="cat"
+              fill={true}
+              sizes="(max-width: 620px) 100vw, (max-width: 1060px) 50vw, (max-width: 1260px) 33vw, 25vw"
+            />
           </div>
         </Link>
       </div>
@@ -39,13 +44,15 @@ export default async function MainCard({
   return (
     <div className="main-card">
       <section className="main-card__top-section">
-        <picture>
-          <source media="(min-width:550px)" srcSet={image} />
-          <source media="(min-width:0px)" srcSet={imageSmall} />
-          <div className="main-card__logo relative">
-            <Image src={image} alt="cat" fill={true} />
-          </div>
-        </picture>
+        <div className="main-card__logo relative">
+          <Image
+            src={image}
+            alt="cat"
+            fill={true}
+            priority={true}
+            sizes={sizes[0]}
+          />
+        </div>
         <p className="main-card__text">Get to know more about your cat breed</p>
         <SearchBar searchList={searchList} />
       </section>

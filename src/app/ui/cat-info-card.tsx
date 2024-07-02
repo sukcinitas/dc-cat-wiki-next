@@ -5,6 +5,7 @@ import Heading from "./heading";
 import Paragraph from "./paragraph";
 import CatInfoCardTable from "./cat-info-card-table";
 import "@/sass/CatInfoCard.scss";
+import sizes from "../lib/util/sizes";
 
 type TCatInfoCardProps = {
   catInfo: {
@@ -38,7 +39,13 @@ const CatInfoCard = ({
     <section className="cat-info-card">
       <div className="cat-info-card__photo-wrapper">
         <div className="relative cat-info-card__photo">
-          <Image src={url} alt="cat" fill={true} />
+          <Image
+            src={url}
+            alt="cat"
+            fill={true}
+            sizes={sizes[0]}
+            priority={true}
+          />
         </div>
         <span className="cat-info-card__detail"></span>
       </div>

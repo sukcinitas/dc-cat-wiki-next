@@ -7,6 +7,7 @@ import LinkButton from "./link-button";
 import image1 from "../../../public/image 1.png";
 import image2 from "../../../public/image 2.png";
 import image3 from "../../../public/image 3.png";
+import sizes from "../lib/util/sizes";
 import "@/sass/InfoCard.scss";
 
 export default function InfoCard() {
@@ -22,13 +23,13 @@ export default function InfoCard() {
       </section>
       <div className="info-card">
         <div className="info-card__pic-wrapper relative">
-          <Image src={image2} alt="cat" fill={true} />
+          <Image src={image2} alt="cat" fill={true} sizes={sizes[0]} />
         </div>
         <div className="info-card__pic-wrapper relative">
-          <Image src={image3} alt="cat" fill={true} />
+          <Image src={image3} alt="cat" fill={true} sizes={sizes[0]} />
         </div>
         <div className="info-card__pic-wrapper relative">
-          <Image src={image1} alt="cat" fill={true} />
+          <Image src={image1} alt="cat" fill={true} sizes={sizes[0]} />
         </div>
       </div>
     </div>
