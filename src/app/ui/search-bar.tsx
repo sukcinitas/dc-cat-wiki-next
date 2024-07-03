@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 
 import "@/sass/SearchBar.scss";
 import Button from "./button";
@@ -17,7 +18,7 @@ export default function SearchBar({
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleSearch = (term: string): void => {
+  const handleSearch = useDebouncedCallback((term: string): void => {
     const params = new URLSearchParams(searchParams);
     if (term) {
       params.set("search", term);
@@ -25,7 +26,7 @@ export default function SearchBar({
       params.delete("search");
     }
     router.replace(`${pathname}?${params.toString()}`);
-  };
+  }, 300);
 
   const nameList = searchList.map(
     (cat: { name: string; id: string }): React.ReactElement => (
