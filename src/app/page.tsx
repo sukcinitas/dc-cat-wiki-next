@@ -18,7 +18,10 @@ export default async function HomePage({
 
   return (
     <div className="home-page">
-      <MainCard data={mapCatImageNameInfo(cats)} searchList={searchList} />
+      <MainCard
+        data={mapCatImageNameInfo(cats)}
+        searchList={searchList ?? []}
+      />
       <InfoCard />
     </div>
   );

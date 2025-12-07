@@ -23,20 +23,3 @@ export default async function CatPage({
     </div>
   );
 }
-
-// export async function generateStaticParams() {
-//   const breeds = await searchCatBreeds("");
-
-//   return breeds.map((breed: { name: string; id: string }) => ({
-//     breed: breed.id,
-//   }));
-// }
-
-// export const getStaticProps = async ({
-//   params,
-// }: {
-//   params: { breed: string };
-// }) => {
-//   const cat = await fetchCatBreed(params.breed);
-//   return { props: { cat } };
-// };
